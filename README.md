@@ -1,6 +1,8 @@
 
  _cite via:_ [![DOI](https://zenodo.org/badge/20391/vertesy/MarkdownReports.svg)](https://zenodo.org/badge/latestdoi/20391/vertesy/MarkdownReports)
 
+This is a modified MarkdownReports to be used with CMSY to generate pdf reports.
+
 ## What is ***MarkdownReports***?
 
 
