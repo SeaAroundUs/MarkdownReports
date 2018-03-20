@@ -1765,15 +1765,15 @@ ww.MarkDown_ImgLink_formatter <- function (...) {
 #' @export
 #' @examples ww.MarkDown_Img_Logger_PDF_and_PNG (fname_wo_ext =  )
 
-ww.MarkDown_Img_Logger_PDF_and_PNG <- function (fname_wo_ext, OutDir_ = OutDir) {
+ww.MarkDown_Img_Logger_PDF_and_PNG <- function (fname_wo_ext, OutDir_ = OutDir, caption) {
   splt = strsplit(fname_wo_ext, "/")
   fn = splt[[1]][length(splt[[1]])]
-  llogit(kollapse("![]", "(", fname_wo_ext, ".pdf)", print = F))
+  llogit(kollapse("![",caption,"]", "(", fname_wo_ext, ".pdf)", print = F))
   if (UnlessSpec("b.usepng")) {
     if (UnlessSpec("b.png4Github")) {
       dirnm = strsplit(OutDir_, split = "/")[[1]]
       dirnm = dirnm[length(dirnm)]
-      llogit(kollapse("![]", "(Reports/", dirnm, "/", fname_wo_ext, ".png)", print = F))
+      llogit(kollapse("![",caption,"]", "(Reports/", dirnm, "/", fname_wo_ext, ".png)", print = F))
     }	else {
       if (exists('b.Subdirname') && ! b.Subdirname==F) { fname_wo_ext = p0( b.Subdirname,"/",fname_wo_ext)} # set only if b.Subdirname is defined, it is not FALSE.
       llogit(kollapse("![", fn, "]", "(", fname_wo_ext, ".png)", print = F)) }
