@@ -46,17 +46,17 @@ setup_MarkdownReports <- function (OutDir = getwd(), scriptname = basename(OutDi
                                    , b.defSize.fullpage = 8.27, b.usepng = F, b.png4Github = T, b.mdlink = T, b.save.wplots = T) {
   if (!exists(OutDir)) {	dir.create(OutDir, showWarnings = F)	}
   if ( ! substrRight(OutDir, 1) == "/" )  OutDir = paste0(OutDir, "/") # add '/' if necessary
-
+  
   assign("OutDir", OutDir, envir = .GlobalEnv)
   iprint("All files will be saved under 'OutDir': ", OutDir)
-  path_of_report <- paste0(OutDir, scriptname, ".log.md")
+  path_of_report <- paste0(OutDir, scriptname, ".md")
   assign("path_of_report", path_of_report, envir = .GlobalEnv)
   iprint("MarkdownReport location is stored in 'path_of_report': ", path_of_report)
-
+  
   if (nchar(title)) {	write(paste("# ", title), path_of_report, append = append)
   } else {			write(paste("# ", scriptname, "Report"), path_of_report, append = append) }
-  write(paste0("		Modified: ", format(Sys.time(), "%d/%m/%Y | %H:%M | by: "), scriptname), path_of_report, append = T)
-
+  #write(paste0("		Modified: ", format(Sys.time(), "%d/%m/%Y | %H:%M | by: "), scriptname), path_of_report, append = T)
+  
   if (addTableOfContents) write('[TOC]', path_of_report, append = T)
   BackupDir = kollapse(OutDir, "/", substr(scriptname, 1, nchar(scriptname)), "_", format(Sys.time(), "%Y_%m_%d-%Hh"), print = F)
   if (setDir) {	setwd(OutDir)}
