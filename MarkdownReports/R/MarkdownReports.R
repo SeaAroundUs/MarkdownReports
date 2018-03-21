@@ -58,12 +58,12 @@ setup_MarkdownReports <- function (OutDir = getwd(), scriptname = basename(OutDi
   #write(paste0("		Modified: ", format(Sys.time(), "%d/%m/%Y | %H:%M | by: "), scriptname), path_of_report, append = T)
   
   if (addTableOfContents) write('[TOC]', path_of_report, append = T)
-  BackupDir = kollapse(OutDir, "/", substr(scriptname, 1, nchar(scriptname)), "_", format(Sys.time(), "%Y_%m_%d-%Hh"), print = F)
+  #BackupDir = kollapse(OutDir, "/", substr(scriptname, 1, nchar(scriptname)), "_", format(Sys.time(), "%Y_%m_%d-%Hh"), print = F)
   if (setDir) {	setwd(OutDir)}
-  if (!exists(BackupDir)) {
-    dir.create(BackupDir, showWarnings = F)
-    assign("BackupDir", BackupDir, envir = .GlobalEnv)
-  }
+  #if (!exists(BackupDir)) {
+#    dir.create(BackupDir, showWarnings = F)
+#    assign("BackupDir", BackupDir, envir = .GlobalEnv)
+#  }
   assign("b.defSize", b.defSize, envir = .GlobalEnv)
   assign("b.defSize.fullpage", b.defSize.fullpage, envir = .GlobalEnv)
   assign("b.mdlink", b.mdlink, envir = .GlobalEnv)
